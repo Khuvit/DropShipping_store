@@ -1,0 +1,110 @@
+<!--
+    概要：ユーサーガこちらへメールを送るためのページ
+    作成者：ホビト
+    作成日：7月20日
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section id="header">
+        <a href="#"><img src="img/logo1_1.png" class="logo" alt=""></a>
+        <div>
+            <ul id="navibar">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="https://www.youtube.com/watch?v=oTbRQDLinIc&t=60s">Video</a></li>
+                <li><a href="https://www.youtube.com/watch?v=oTbRQDLinIc&t=60s">About</a></li>
+                <li><a class="active" href="contact_us.html">Contact</a></li>
+                <li><a href="cart.html"><i class="fa fa-shopping-cart"></i></a></li>
+                <li><a href="index.php"><i class="fa fa-user"></i></a></li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="banner3" class="section-m1">
+        <h4>Reliable market</h4>
+        <h2><span>All</span> of our products are from the safest</h2>
+
+    </section>
+
+    <div class="container">
+        <form onsubmit="sendEmail(); reset(); return false;">
+            <h4>Thank you for choosing us</h4>
+            <input type="text" id="name" placeholder="Your name" required>
+            <input type="email" id="email" placeholder="email" required>
+            <input type="text" id="Phone" placeholder="Phone number" required>
+            <textarea id="message" rows="4" placeholder="How we can help you"></textarea>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+
+    <footer class="section-p1">
+        <div class="column1">
+            <img class="logo" src="img/logo1_1.png" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address:</strong> Ulaanbaatar city, Sukhbaatar district, micro district 4</p>
+            <p><strong>Phone:</strong> +97699110490/(+97677121204)</p>
+            <p><strong>Availability:</strong> 10:00 - 19:00, Everyday</p>
+            <div class="Follow">
+                <h4>Follow us</h4>
+                <div class="icon">
+                    <i class="fab fa-facebook-f"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-instagram"></i>
+                    <i class="fab fa-pinterest-p"></i>
+                    <i class="fab fa-youtube"></i>
+                </div>
+            </div>
+        </div>
+        <div class="column1">
+            <h4>About</h4>
+            <a href="#">About us</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Condition</a>
+            <a href="#">Contact us</a>
+        </div>
+        <div class="col_install">
+            <h4>We accept</h4>
+            <div class="zurag">
+                <img class="zuragzas" src="img/vis.png">
+            </div>
+        </div>
+        <div class="copyright">
+            <p>@ 2023, Hobito, Sakuhin</p>
+        </div>
+    </footer>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+
+    <script>
+        function sendEmail() {
+            const res = Email.send({
+                Host: "smtp.gmail.com",
+                Username: "khuvituguldur01@gmail.com",
+                Password: "TurshiltMail0206",
+                To: 'turshiltmail0602@gmail.com',
+                From: document.getElementById("email").value,
+                Subject: "New Contact Form Enquiry",
+                Body: "Name:" + document.getElementById("name").value
+                    + "<br> Email:" + document.getElementById("email").value
+                    + "<br> Phone number:" + document.getElementById("Phone").value
+                    + "<br> Text:" + document.getElementById("message").value
+            }).then(
+                message => alert("Thank you for the cooperation")
+            );
+        }
+    </script>
+
+</body>
+
+</html>
